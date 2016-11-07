@@ -518,6 +518,7 @@ class Controller(object):
 
     def list_policies(self, args):
         params, parser, args = utility(args)
+        parser.add_argument('--Scope', required = False)
         args = parser.parse_args(args)
         utils.populate_params_from_cli_args(params, args)
         return requestify.make_request(self.url, self.verb, self.headers,
